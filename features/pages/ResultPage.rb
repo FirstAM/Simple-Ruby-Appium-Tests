@@ -1,25 +1,28 @@
 
-
 class ResultPage
-
 
   #Локаторы
   def result
-    find_element(:id,"textView")
+    find_element(:id, "textView")
   end 
 
-  def goBack
-    find_element(:id,"goBack")
+  def go_back
+    find_element(:id, "goBack")
   end
 
-  def accert_result(check_result)
-    final_result = result.text
-     if final_result != check_result 
+  #работа с экраном
+  def check(check_result)
+    final_result = find_element(:id, "textView").text.to_s
+     if final_result != check_result
          fail(msg = ("Ожижаемый результат #{check_result}, действительный результат #{final_result}"))
      end
-     puts "результаты совпадают"
+    puts "результаты совпадают"
+    go_to_main_page
   end
 
- 
- 
-end  
+  def go_to_main_page
+    go_back.click
+  end
+
+
+  end

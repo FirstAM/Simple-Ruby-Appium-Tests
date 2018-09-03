@@ -6,9 +6,11 @@ Then(/^переходим на экран с результатом$/) do
   @cal_page.go_to_result_activity
 end
 
-Then(/^проверяем что результат равен "([^"]*)"$/) do |result|
-  @cal_page.input_two_value(value1, value2)
+Then(/^проверяем что результат равен "([^"]*)"$/) do |check_result|
+  @result_page.check(check_result)
 end
+
+
 
 
 

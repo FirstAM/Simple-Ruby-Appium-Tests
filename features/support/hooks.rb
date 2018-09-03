@@ -1,5 +1,6 @@
-Before do 
-   time = Time.now.strftime("%d/%m/%Y %H:%M:%S")
+Before do
+  @driver.start_driver
+  time = Time.now.strftime("%d/%m/%Y %H:%M:%S")
   puts "Время перед выполнением шага: #{time}"
 
   #Страницы
@@ -17,7 +18,8 @@ end
 After do |scenario|
   if scenario.failed?
     name_scenario = scenario.name
-    screenshot "./screenshot/#{name_scenario}.png"
+    screenshot "features/screenshot/#{name_scenario}.png"
   end
+  $driver.driver_quit
 end  
 
