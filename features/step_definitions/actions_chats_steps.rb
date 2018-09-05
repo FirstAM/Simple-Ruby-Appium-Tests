@@ -9,8 +9,4 @@ end
 Then(/^проверяем что результат равен "([^"]*)"$/) do |check_result|
   @result_page.check(check_result)
 end
-
-
-
-
-
+#1123123
